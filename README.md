@@ -1,75 +1,160 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Travel Planner
 
-Currently, two official plugins are available:
+A full-stack travel itinerary planning application that helps users organize trips, discover destinations, and generate personalized travel plans.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The platform allows users to create travel itineraries, explore destinations, and manage their trips through an interactive dashboard. The project is designed to evolve into an AI-powered travel assistant capable of recommending activities, cafés, restaurants, and attractions tailored to each user.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Features
 
-Note: This will impact Vite dev & build performances.
+* User authentication (login / logout)
+* JWT-based authentication
+* Protected routes for authenticated users
+* Interactive user dashboard
+* Personalized travel itinerary creation
+* Google Maps API integration for location discovery
+* API-based data fetching
+* Form validation
+* Responsive UI for multiple devices
+* Planned AI travel assistant
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Frontend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* React
+* TypeScript
+* Vite
+* React Router
+* Shadcn UI
+* ESLint
+* Prettier
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Backend
+
+* Python
+* FastAPI
+* JWT Authentication
+* Pydantic Validation
+
+### AI / Data Layer
+
+* Large Language Models (LLM)
+* LangChain / LangGraph (planned)
+
+### External APIs
+
+* Google Maps API
+
+---
+
+## Architecture
+
+| Layer      | Technology         | Responsibility                   |
+| ---------- | ------------------ | -------------------------------- |
+| Frontend   | React + TypeScript | User interface and interactions  |
+| Backend    | FastAPI (Python)   | API endpoints and authentication |
+| AI Layer   | LLM + LangChain    | AI itinerary planning            |
+| Validation | Zod / Pydantic     | Input validation                 |
+
+---
+
+## Project Structure
+
+```
+src
+ ├── components
+ │    ├── Button
+ │    │    ├── Button.tsx
+ │    │    └── Button.css
+ │
+ ├── pages
+ │    ├── Login
+ │    │    └── LoginPage.tsx
+ │
+ ├── hooks
+ │    └── useAuth.ts
+ │
+ ├── services
+ │    └── api.ts
+ │
+ ├── types
+ │    └── user.ts
+ │
+ ├── utils
+ │    └── helpers.ts
+ │
+ ├── App.tsx
+ └── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file in the project root.
+
+Example:
+
 ```
+VITE_API_BASE_URL=your_backend_api_url
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/saumyaverma03/travel-planner-frontend
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start development server:
+
+```
+npm run dev
+```
+
+---
+
+## Build
+
+Create a production build:
+
+```
+npm run build
+```
+
+---
+
+## Inspiration
+
+This project draws inspiration from platforms like Stippl, TripIt, Wanderlog, WonderPlan, TripAdvisor aiming to combine travel planning with intelligent recommendations powered by AI.
+
+---
+
+## Future Improvements
+
+* AI-generated travel itineraries
+* Nearby activity recommendations using AI
+* Collaborative trip planning
+* Saved trips and itinerary management
+* Cloud deployment
+
+---
+
+## Deployment
+
+Deployment is planned for a future release.
